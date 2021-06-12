@@ -1,6 +1,8 @@
 #include "timetable.h"
 typedef struct tm DateTime;
 
+
+
 TimeTable* initializeTimeTable()
 {
 	TimeTable* temptable = (TimeTable*)malloc(sizeof(TimeTable));

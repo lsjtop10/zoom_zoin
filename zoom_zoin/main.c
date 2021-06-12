@@ -1,17 +1,17 @@
 #include <stdlib.h>
 #include "timetable.h"
 
+#ifdef _DEBUG
+void test()
+{
+	//TODO:여기에다가 test코드 작성
+}
+#endif
+
+
 int main()
 {
-	Class cls;
-	DateTime dt;
-	dt.tm_min = 3;
-	cls.name = "국어";
-	cls.zoomAdd = "http";
-	cls.startTime = dt;
-
-	TimeTable* tt = (TimeTable*)malloc(sizeof(TimeTable));
-	initializeTimeTable(tt);
-	enqueue(tt, cls);
-	enqueue(tt, cls);
+#ifdef _DEBUG
+	test();
+#endif
 }
