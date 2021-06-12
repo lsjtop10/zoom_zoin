@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <time.h>
 #include <stdlib.h>
+
 typedef struct tm DateTime;
 typedef struct Class
 {
@@ -17,5 +18,8 @@ typedef struct TimeTable
 	int size;
 }TimeTable;
 
-TimeTable* initializeTimeTable(TimeTable* timeTable);
-void enqueue(TimeTable* timeTable, Class input);
+TimeTable* initializeTimeTable();
+void enqueue(TimeTable* pThis, Class input);
+Class* lookHead(TimeTable* pThis);
+void cutHead(TimeTable* pThis);
+Class* getNodeByIndex(TimeTable* pThis, int index);
