@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "timetable.h"
 
+
 #ifdef _DEBUG
 void test()
 {
@@ -27,9 +28,7 @@ void test()
 
 	getNodeByIndex(tt, 3);
 
-	ChangeTimeTable(tt, 2, 4);
-	ChangeTimeTable(tt, 3, 2);
-	
+	SwapTimeTable(tt, 3, 4);
 }
 #endif
 

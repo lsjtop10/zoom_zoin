@@ -3,19 +3,22 @@
 #include <stdlib.h>
 #include <stdbool.h> 
 
+
+
 typedef struct tm DateTime;
 typedef struct Class
 {
 	char* name;
 	char* zoomAdd;
 	DateTime startTime;
-	struct Class* next;
+
+	struct Class* _next;
 }Class;
 
 typedef struct TimeTable
 {
-	Class* Head;
-	Class* Tail;
+	Class* _Head;
+	Class* _Tail;
 	int size;
 }TimeTable;
 

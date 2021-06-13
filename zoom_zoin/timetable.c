@@ -5,7 +5,7 @@
 TimeTable* initializeTimeTable()
 {
 	TimeTable* temptable = (TimeTable*)malloc(sizeof(TimeTable));
-	temptable->Head = temptable->Tail = NULL;
+	temptable->_Head = temptable->_Tail = NULL;
 	temptable->size = 0;
 	return temptable;
 }
@@ -20,22 +20,26 @@ void enqueue(TimeTable* pThis, Class input)
 
 	if (pThis->size == 0)
 	{
-		pThis->Head = tempClass;
+		pThis->_Head = tempClass;
 		pThis->size++;
-		pThis->Tail = tempClass;
+		pThis->_Tail = tempClass;
 	}
 	else
 	{
-		pThis->Tail->next = tempClass;
-		pThis->Tail = pThis->Tail->next;
+		pThis->_Tail->_next = tempClass;
+		pThis->_Tail = pThis->_Tail->_next;
 		pThis->size++;
 	}
+
+	pThis->_Tail = NULL;
 }
+
 
 Class* lookHead(TimeTable* pThis)
 {
-	return pThis->Head;
+	return pThis->_Head;
 }
+
 
 void cutHead(TimeTable* pThis)
 {
@@ -45,15 +49,15 @@ void cutHead(TimeTable* pThis)
 	}
 	if (pThis->size == 1)
 	{
-		free(pThis->Head);
-		pThis->Head = NULL;
-		pThis->Tail = NULL;
+		free(pThis->_Head);
+		pThis->_Head = NULL;
+		pThis->_Tail = NULL;
 	}
 	else
 	{
-		Class* next = pThis->Head->next;
-		free(pThis->Head);
-		pThis->Head = next;
+		Class* next = pThis->_Head->_next;
+		free(pThis->_Head);
+		pThis->_Head = next;
 	}
 	pThis->size--;
 }
@@ -61,7 +65,7 @@ void cutHead(TimeTable* pThis)
 Class* getNodeByIndex(TimeTable* pThis, int index)
 {
 	Class* horse;
-	horse = pThis->Head;
+	horse = pThis->_Head;
 
 	if (index <= 0 || index > pThis->size - 1)
 	{
@@ -70,7 +74,7 @@ Class* getNodeByIndex(TimeTable* pThis, int index)
 
 	for (int i = 0; i < index; i++)
 	{
-		horse = horse->next;
+		horse = horse->_next;
 	}
 
 	return horse;
@@ -102,7 +106,7 @@ bool ChangeTimeTable(TimeTable* pThis, Class input, int index)
 
 	Class* Target = getNodeByIndex(pThis, index);
 
-	//copy data in input to target
+	//copy data in input to target IF CLASS STRUCT ARE CHANGED, EDIT THIS
 	Target->name = input.name;
 	Target->zoomAdd = input.zoomAdd;
 	Target->startTime = input.startTime;
