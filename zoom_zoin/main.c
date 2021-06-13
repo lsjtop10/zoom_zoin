@@ -28,7 +28,9 @@ void test()
 
 	getNodeByIndex(tt, 3);
 
-	SwapTimeTable(tt, 3, 4);
+	SwapTimeTable(tt, 2, 3);
+	SwapTimeTable(tt, 2, 3);
+
 }
 #endif
 

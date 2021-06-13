@@ -12,6 +12,7 @@ typedef struct Class
 	char* zoomAdd;
 	DateTime startTime;
 
+	//Remark: Tail의 next노드는 항상 NULL
 	struct Class* _next;
 }Class;
 
