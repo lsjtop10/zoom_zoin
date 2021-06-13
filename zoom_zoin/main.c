@@ -8,16 +8,28 @@ void test()
 	DateTime dt;
 	dt.tm_hour = 1;
 	dt.tm_min = 0;
-	Class lic = { "0","https://zoom.us/문학",  dt};
-	Class math = { "1","https://zoom.us/수학", dt};
-	Class eng = { "2","https://zoom.us/eng",  dt};
-	Class phy = { "3", "https://zoom.us/물리", dt };
+	Class lic = { "0","",  dt};
+	Class math = { "1","", dt};
+	Class eng = { "2","",  dt};
+	Class phy = { "3", "", dt};
+	Class lic1 = { "4","",  dt };
+	Class math2 = { "5","", dt };
+	Class eng3 = { "6","",  dt };
+	Class phy4 = { "7", "", dt };
 	enqueue(tt, lic);
 	enqueue(tt, math);
 	enqueue(tt, eng);
 	enqueue(tt, phy);
+	enqueue(tt, lic1);
+	enqueue(tt, math2);
+	enqueue(tt, eng3);
+	enqueue(tt, phy4);
 
 	getNodeByIndex(tt, 3);
+
+	ChangeTimeTable(tt, 2, 4);
+	ChangeTimeTable(tt, 3, 2);
+	
 }
 #endif
 

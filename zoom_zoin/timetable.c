@@ -1,5 +1,5 @@
 #include "timetable.h"
-typedef struct tm DateTime;
+
 
 
 TimeTable* initializeTimeTable()
@@ -63,6 +63,11 @@ Class* getNodeByIndex(TimeTable* pThis, int index)
 	Class* horse;
 	horse = pThis->Head;
 
+	if (index <= 0 || index > pThis->size - 1)
+	{
+		return NULL;
+	}
+
 	for (int i = 0; i < index; i++)
 	{
 		horse = horse->next;
@@ -70,4 +75,39 @@ Class* getNodeByIndex(TimeTable* pThis, int index)
 
 	return horse;
 }
+
+//input1이 input2보다 작으면 데이터를 스왑
+static void changeNumberBySize(int* input1, int* input2)
+{
+	int tmp;
+	tmp = *input1;
+	if (*input1 > *input2)
+	{
+		*input1 = *input2;
+		*input2 = tmp;
+	}
+}
+
+bool SwapTimeTable(TimeTable* pThis, int index1, int index2)
+{
+
+}
+
+bool ChangeTimeTable(TimeTable* pThis, Class input, int index)
+{
+	if (index > pThis->size - 1)
+	{
+		return false;
+	}
+
+	Class* Target = getNodeByIndex(pThis, index);
+
+	//copy data in input to target
+	Target->name = input.name;
+	Target->zoomAdd = input.zoomAdd;
+	Target->startTime = input.startTime;
+
+	return true;
+}
+
 
