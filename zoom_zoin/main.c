@@ -36,6 +36,6 @@ char Load_Setting()
 
 int main()
 {
-    Test()
+    Test();
         return 0;
 }
