@@ -28,9 +28,19 @@ void test()
 
 	getNodeByIndex(tt, 3);
 
+	swapTimeTable(tt, 0, 3);
+	swapTimeTable(tt, 0, 3);
+
+	swapTimeTable(tt, 4, 7);
+	swapTimeTable(tt, 4, 7);
+
+	swapTimeTable(tt, 2, 3);
 	swapTimeTable(tt, 2, 3);
 
+	swapTimeTable(tt, 4, 5);
+	swapTimeTable(tt, 4, 5);
 }
+
 #endif
 
 

@@ -162,7 +162,7 @@ bool swapTimeTable(TimeTable* pThis, int index1, int index2)
 	}
 	else
 	{
-		c1->_next = c1p->_next;
+		c2->_next = c1p->_next;
 		c1p->_next = c2;
 
 		c1->_next = c2p->_next;
