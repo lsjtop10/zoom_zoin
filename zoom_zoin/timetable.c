@@ -106,29 +106,29 @@ static void changeNumberBySize(int* input1, int* input2)
 	}
 }
 
-bool SwapTimeTable(TimeTable* pThis, int index1, int index2)
+bool swapTimeTable(TimeTable* pThis, int index1, int index2)
 {
-	
+
 	int target1 = index1;
 	int target2 = index2;
 	changeNumberBySize(&target1, &target2);
 
 	if (index1 == index2) return true;
 	if (index1 < 0 || index2 > pThis->size - 1) return false;
-	
-	Class *c1p, *c1, *c1n;
-	Class *c2p, *c2, *c2n;
-	
+
+	Class* c1p, * c1, * c1n;
+	Class* c2p, * c2, * c2n;
+
 	//다음 노드로 Head를 가리키는 가상의 노드, 입력값에 head가 왔을 때 사용
-	Class temp = {"NULL","NULL",pThis->_Head->startTime, NULL};
+	Class temp = { "NULL","NULL",pThis->_Head->startTime, NULL };
 
 	//바꿀 원소 주변의 원소를 가져오기
-	c1p = getNodeByIndex(pThis ,target1 - 1);
+	c1p = getNodeByIndex(pThis, target1 - 1);
 	c2p = getNodeByIndex(pThis, target2 - 1);
-	
+
 	if (c1p == NULL)
 	{
-		
+
 		temp._next = pThis->_Head;
 		c1p = &temp;
 	}
@@ -141,7 +141,7 @@ bool SwapTimeTable(TimeTable* pThis, int index1, int index2)
 	c2n = c2->_next;
 
 	//Todo: 바꿀 두 노드를 링크드 리스트에서 빼기
-	
+
 	if (target1 + 1 == target2)
 	{
 		c1p->_next = c2n;
@@ -154,12 +154,24 @@ bool SwapTimeTable(TimeTable* pThis, int index1, int index2)
 
 	//Todo: 바뀐 순서에 맞춰 링크드 리스트에 다시 삽입
 
-	c2->_next = c1p->_next;
-	c1p->_next = c2;
+	if (target1 + 1 == target2)
+	{
+		c1->_next = c1p->_next;
+		c1p->_next = c2;
+		c2->_next = c1;
+	}
+	else
+	{
+		c1->_next = c1p->_next;
+		c1p->_next = c2;
 
-	c1->_next = c2p->_next;
-	c2p->_next = c1;
-	
+		c1->_next = c2p->_next;
+		c2p->_next = c1;
+
+	}
+
+
+
 	if (temp._next != NULL)
 	{
 		pThis->_Head = temp._next;
@@ -168,18 +180,15 @@ bool SwapTimeTable(TimeTable* pThis, int index1, int index2)
 	{
 		pThis->_Tail = c1;
 	}
-	
 
-#if TEST1
-	showList(pThis);
-	printf("\n");
-#endif // #if _DEBUG
 
 	return true;
+
+
 	
 }
 
-bool ChangeTimeTable(TimeTable* pThis, Class input, int index)
+bool changeTimeTable(TimeTable* pThis, Class input, int index)
 {
 	if (index > pThis->size - 1)
 	{
