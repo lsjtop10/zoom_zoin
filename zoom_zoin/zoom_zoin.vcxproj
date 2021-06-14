@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="fun_data.c" />
+    <ClCompile Include="parson.c" />
+    <ClCompile Include="timetable.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fun_data.h" />
+    <ClInclude Include="parson.h" />
+    <ClInclude Include="settings.h" />
+    <ClInclude Include="timetable.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -140,11 +151,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
-    <ClCompile Include="timetable.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="settings.h" />
-    <ClInclude Include="timetable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
