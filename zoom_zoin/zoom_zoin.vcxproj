@@ -22,12 +22,14 @@
     <ClCompile Include="fun_data.c" />
     <ClCompile Include="parson.c" />
     <ClCompile Include="timetable.c" />
+    <ClCompile Include="user.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fun_data.h" />
     <ClInclude Include="parson.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="timetable.h" />
+    <ClInclude Include="user.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
