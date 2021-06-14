@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <stdbool.h> 
 
-
-
 typedef struct tm DateTime;
 typedef struct Class
 {
