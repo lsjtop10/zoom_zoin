@@ -11,7 +11,7 @@ void shwoInitMenu(TimeTable* ptimeTable, Settings* setting)
 	}
 	
 	printf("<현재 설정>\n"); 
-	printf("현재 쓰는 프로그램: "); printf()
+	printf("현재 쓰는 프로그램: "); printf();
 
 	char input;
 	printf("원하시는 기능에 해당하는 숫자나 알파벳 선택하세요 \n");

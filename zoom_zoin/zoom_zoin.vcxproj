@@ -19,15 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="temp1.c" />
     <ClCompile Include="fun_data.c" />
     <ClCompile Include="parson.c" />
+    <ClCompile Include="temp2.c" />
     <ClCompile Include="timetable.c" />
     <ClCompile Include="user.c" />
+    <ClCompile Include="settings.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fun_data.h" />
     <ClInclude Include="parson.h" />
     <ClInclude Include="settings.h" />
+    <ClInclude Include="temp1.h" />
+    <ClInclude Include="temp2.h" />
     <ClInclude Include="timetable.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
