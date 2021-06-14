@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include "timetable.h"
 
-
 #ifdef _DEBUG
 void test()
 {

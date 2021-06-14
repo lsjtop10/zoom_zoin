@@ -106,6 +106,14 @@ static void changeNumberBySize(int* input1, int* input2)
 	}
 }
 
+static void swapStartTime(Class* input1, Class* input2)
+{
+	DateTime temp;
+	temp = input1->startTime;
+	input1->startTime = input2->startTime;
+	input2->startTime = temp;
+}
+
 bool swapTimeTable(TimeTable* pThis, int index1, int index2)
 {
 
@@ -170,8 +178,6 @@ bool swapTimeTable(TimeTable* pThis, int index1, int index2)
 
 	}
 
-
-
 	if (temp._next != NULL)
 	{
 		pThis->_Head = temp._next;
@@ -181,10 +187,9 @@ bool swapTimeTable(TimeTable* pThis, int index1, int index2)
 		pThis->_Tail = c1;
 	}
 
+	swapStartTime(c1, c2);
 
 	return true;
-
-
 	
 }
 
@@ -204,5 +209,3 @@ bool changeTimeTable(TimeTable* pThis, Class input, int index)
 
 	return true;
 }
-
-
