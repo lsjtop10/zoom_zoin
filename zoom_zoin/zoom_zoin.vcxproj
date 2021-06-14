@@ -19,13 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ZoomSetting_Data\ZoomSetting_Data\fun_data.c" />
-    <ClCompile Include="..\..\ZoomSetting_Data\ZoomSetting_Data\main.c" />
-    <ClCompile Include="..\..\ZoomSetting_Data\ZoomSetting_Data\parson.c" />
+    <ClCompile Include="fun_data.c" />
+    <ClCompile Include="parson.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ZoomSetting_Data\ZoomSetting_Data\fun_data.h" />
-    <ClInclude Include="..\..\ZoomSetting_Data\ZoomSetting_Data\parson.h" />
+    <ClInclude Include="fun_data.h" />
+    <ClInclude Include="parson.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
