@@ -31,8 +31,7 @@ void shwoInitMenu(TimeTable* ptimeTable)
 	}
 	
 	printf("<현재 설정>\n"); 
-	printf("1. 현재 쓰는 프로그램: "); printf(getprog(__getsetting()->UsedProgram));
-	printf("2. 사전 대기시간: "); printf(__getsetting()->wait_min); printf(" 분");
+	printf("현재 쓰는 프로그램: "); printf()
 
 	while (true)
 	{
