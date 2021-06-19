@@ -28,7 +28,11 @@ void enqueue(TimeTable* pThis, Class input)
 {
 	//Class를 할당받고 입력받은 input에 맞게 초기화
 	Class* tempClass = (Class*)malloc(sizeof(Class));
-	tempClass->name = input.name;
+
+	tempClass->name = (char*)malloc(sizeof(char) * strlen(input.name));
+	strcpy(tempClass->name, input.name);
+	
+	//tempClass->zoomAdd = (char*)malloc(sizeof)
 	tempClass->zoomAdd = input.zoomAdd;
 	tempClass->startTime = input.startTime;
 
@@ -63,12 +67,16 @@ void cutHead(TimeTable* pThis)
 	}
 	if (pThis->size == 1)
 	{
+		free(pThis->_Head->name);
+		free(pThis->_Head->zoomAdd);
 		free(pThis->_Head);
 		pThis->_Head = NULL;
 		pThis->_Tail = NULL;
 	}
 	else
 	{
+		free(pThis->_Head->name);
+		free(pThis->_Head->zoomAdd);
 		Class* next = pThis->_Head->_next;
 		free(pThis->_Head);
 		pThis->_Head = next;

@@ -1,6 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS 
 #include <stdlib.h>
+#include <stdio.h>
 #include "timetable.h"
 #include "settings.h"
+
 
 Settings st;
 
@@ -11,7 +14,7 @@ Settings* __getsetting()
 }
 
 void OnChangeTimeTableRequest(TimeTable* ptimeTable);
-static void OnChanegeSettingRequest();
+void OnChanegeSettingRequest();
 
 static void ShowTimetable(TimeTable* ptimeTable)
 {
@@ -23,7 +26,7 @@ static void ShowTimetable(TimeTable* ptimeTable)
 
 }
 
-void shwoInitMenu(TimeTable* ptimeTable)
+void showInitMenu(TimeTable* ptimeTable)
 {
 	printf("시간표:");
 	for (int i = 1; i <= ptimeTable->size; i++)
@@ -32,7 +35,7 @@ void shwoInitMenu(TimeTable* ptimeTable)
 	}
 	
 	printf("<현재 설정>\n"); 
-	printf("현재 쓰는 프로그램: "); printf();
+	printf("현재 쓰는 프로그램: "); printf("N/A");
 
 	while (true)
 	{
@@ -50,7 +53,7 @@ void shwoInitMenu(TimeTable* ptimeTable)
 			OnChangeTimeTableRequest(ptimeTable);
 			break;
 		case '2':
-			OnChangeSettingRequest();
+			OnChanegeSettingRequest();
 			break;
 		case 'e':
 			return;
@@ -97,9 +100,11 @@ static void OnChangeTimeTableRequest(TimeTable* ptimeTable)
 			scanf("%d", n);
 			Class temp;
 			printf("바뀐 시간표의 과목명을 입력해주세요");
-
+			
 			printf("바뀐 시간표의 줌 접속 주소를 복사해서 입력해주세요");
+
 			printf("바뀐 시간표의 시작 시각의 시간 단위만 입력해주세요");
+
 			printf("바뀐 시간표의 시작 시각의 분 단위만 입력해주세요");
 
 	default:
