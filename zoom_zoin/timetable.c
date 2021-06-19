@@ -32,8 +32,9 @@ void enqueue(TimeTable* pThis, Class input)
 	tempClass->name = (char*)malloc(sizeof(char) * strlen(input.name));
 	strcpy(tempClass->name, input.name);
 	
-	//tempClass->zoomAdd = (char*)malloc(sizeof)
-	tempClass->zoomAdd = input.zoomAdd;
+	tempClass->zoomAdd = (char*)malloc(sizeof(char) * strlen(input.zoomAdd));
+	strcpy(tempClass->zoomAdd, input.zoomAdd);
+
 	tempClass->startTime = input.startTime;
 
 	if (pThis->size == 0)
@@ -211,8 +212,15 @@ bool changeTimeTable(TimeTable* pThis, Class input, int index)
 	Class* Target = getNodeByIndex(pThis, index);
 
 	//copy data in input to target IF CLASS STRUCT ARE CHANGED, EDIT THIS
-	Target->name = input.name;
-	Target->zoomAdd = input.zoomAdd;
+	free(Target->name);
+	free(Target->zoomAdd);
+
+	Target->name = malloc(sizeof(char) * strlen(input.name));
+	strcpy(Target->name, input.name);
+
+	Target->zoomAdd = malloc(sizeof(char) * strlen(input.zoomAdd));
+	strcpy(Target->zoomAdd, input.zoomAdd);
+
 	Target->startTime = input.startTime;
 
 	return true;

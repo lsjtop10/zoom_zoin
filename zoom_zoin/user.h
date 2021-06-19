@@ -1,2 +1,2 @@
 #pragma once
-void showInitMenu();
+void showInitMenu(TimeTable* ptimeTable);
