@@ -42,7 +42,7 @@ void showInitMenu(TimeTable* ptimeTable)
 
 	while (true)
 	{
-	
+
 		printf("\n");
 		printf("1. 시간표 변경\n");
 		printf("2. 설정 변경\n");
@@ -75,69 +75,69 @@ static void onChangeTimeTableRequest(TimeTable* ptimeTable)
 	printf("원하시는 기능을 선택해주세요 \n");
 	printf("1. n교시와 m교시의 과목을 바꾸기\n");
 	printf("2. n교시를 새로운 과목으로 바꾸기\n");
-	
-	
+
+
 	char inputb = '.';
 	scanf("%c", &inputb);
 	clearLineFromReadBuffer();
 	switch (inputb)
 	{
-			int n, m;
-		case '1':
-			n = 0; m = 0;
-			printf("n교시는 무엇입니까?\n");
+		int n, m;
+	case '1':
+		n = 0; m = 0;
+		printf("n교시는 무엇입니까?\n");
 
-			scanf("%d", &n);
-			clearLineFromReadBuffer();
+		scanf("%d", &n);
+		clearLineFromReadBuffer();
 
-			printf("m교시는 무엇입니까?\n");
+		printf("m교시는 무엇입니까?\n");
 
-			scanf("%d", &m);
-			clearLineFromReadBuffer();
+		scanf("%d", &m);
+		clearLineFromReadBuffer();
 
-			if (swapTimeTable(ptimeTable, n, m) == true)
-			{
-				printf("입력이 성공적으로 처리됐습니다. \n");
-				swapTimeTable(ptimeTable, n - 1, m - 1);
-				printf("바뀐 시간표: \n");
-				showTimetable(ptimeTable);
-			}
-			else
-			{
-				printf("입력이 성공적으로 처리돼지 못했습니다. n과 m을 확인하고 다시 확인해주세요");
-			}
+		if (swapTimeTable(ptimeTable, n, m) == true)
+		{
+			printf("입력이 성공적으로 처리됐습니다. \n");
+			swapTimeTable(ptimeTable, n - 1, m - 1);
+			printf("바뀐 시간표: \n");
+			showTimetable(ptimeTable);
+		}
+		else
+		{
+			printf("입력이 성공적으로 처리돼지 못했습니다. n과 m을 확인하고 다시 확인해주세요");
+		}
 		break;
-		case '2':
-			printf("n값을 입력해주세요");
-			n = 0;
-			
-			scanf("%d", n);
-			clearLineFromReadBuffer();
-			Class temp = {"",""};
-			char sub[500];
-			char addr[2048];
+	case '2':
+		printf("n값을 입력해주세요");
+		n = 0;
 
-			printf("바뀐 시간표의 과목명을 입력해주세요");
-			scanf("%s", sub);
-			clearLineFromReadBuffer();
+		scanf("%d", n);
+		clearLineFromReadBuffer();
+		Class temp = { "","" };
+		char sub[500];
+		char addr[2048];
 
-			printf("바뀐 시간표의 줌 접속 주소를 복사해서 입력해주세요");
-			scanf("%s", addr);
-			clearLineFromReadBuffer();
+		printf("바뀐 시간표의 과목명을 입력해주세요");
+		scanf("%s", sub);
+		clearLineFromReadBuffer();
 
-			temp.name = sub;
-			temp.zoomAdd = addr;
+		printf("바뀐 시간표의 줌 접속 주소를 복사해서 입력해주세요");
+		scanf("%s", addr);
+		clearLineFromReadBuffer();
 
-			printf("바뀐 시간표의 시작 시각의 시간 단위만 입력해주세요");
-			scanf("%d", temp.startTime.tm_hour);
-			clearLineFromReadBuffer();
+		temp.name = sub;
+		temp.zoomAdd = addr;
 
-			printf("바뀐 시간표의 시작 시각의 분 단위만 입력해주세요");
+		printf("바뀐 시간표의 시작 시각의 시간 단위만 입력해주세요");
+		scanf("%d", temp.startTime.tm_hour);
+		clearLineFromReadBuffer();
 
-			scanf("%d", temp.startTime.tm_min);
-			clearLineFromReadBuffer();
+		printf("바뀐 시간표의 시작 시각의 분 단위만 입력해주세요");
 
-			changeTimeTable(ptimeTable, temp, n);
+		scanf("%d", temp.startTime.tm_min);
+		clearLineFromReadBuffer();
+
+		changeTimeTable(ptimeTable, temp, n);
 	default:
 		break;
 	}
