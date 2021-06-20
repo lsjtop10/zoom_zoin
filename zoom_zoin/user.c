@@ -33,8 +33,6 @@ void showSettings()
 
 void showInitMenu(TimeTable* ptimeTable)
 {
-
-
 	while (true)
 	{
 		showTimetable(ptimeTable);
