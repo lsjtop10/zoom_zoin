@@ -4,4 +4,5 @@
 
 int Load_Setting(int type);
 int Load_Timetable(int ToDay);
-int Load_Subject(int type);
+const char* Load_Subject(int type);
+const char* Load_Subject_Obbject(int i);

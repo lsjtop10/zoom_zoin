@@ -54,7 +54,7 @@ int Load_Timetable(int ToDay)
 	return retval;
 }
 
-int Load_Subject(int type)
+const char* Load_Subject(int type)
 {
 
 	JSON_Value* rootValue;
@@ -64,14 +64,25 @@ int Load_Subject(int type)
 	rootObject = json_value_get_object(rootValue);
 
 
-	int retval = 0;
+	const char* retval = json_object_get_string(rootObject, json_object_get_name(rootObject, type));
 
-	if (type == 0)
-		retval = (int)json_object_get_number(rootObject, "과학");
-	else if (type == 1)
-		retval = (int)json_object_get_number(rootObject, "수학");
 
-	json_value_free(rootValue);
+	//json_value_free(rootValue);
+	return retval;
+}
+
+const char* Load_Subject_Obbject(int i)
+{
+	JSON_Value* rootValue;
+	JSON_Object* rootObject;
+
+	rootValue = json_parse_file("subject.json");
+	rootObject = json_value_get_object(rootValue);
+
+
+	const char* retval = json_object_get_name(rootObject, i);
+
+	//json_value_free(rootValue);
 
 	return retval;
 }

@@ -31,6 +31,7 @@ void initalizeProgram()
 
 		const char* zoomAd = NULL;
 		zoomAd = Load_Subject(i);
+
 		Class class;
 		class.name = key;
 		class.zoomAdd = zoomAd;
