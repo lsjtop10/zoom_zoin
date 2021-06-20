@@ -1,5 +1,4 @@
 #include "timetable.h"
-#define _CRT_SECURE_NO_WARNINGS 
 
 
 TimeTable* initializeTimeTable()
@@ -44,8 +43,10 @@ Class* lookHead(TimeTable* pThis)
 
 void cutHead(TimeTable* pThis)
 {
+	free(pThis->_Buf[pThis->_head]->name);
+	free(pThis->_Buf[pThis->_head]->zoomAdd);
 	free(pThis->_Buf[pThis->_head]);
-	pThis->_Buf[pThis->_head] == NULL;
+	pThis->_Buf[pThis->_head] = NULL;
 	pThis->size--;
 	pThis->_head++;
 }
