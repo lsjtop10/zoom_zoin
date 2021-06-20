@@ -10,10 +10,11 @@ TimeTable* initializeTimeTable()
 	tempTable->_head = 0;
 	tempTable->_tail = 0;
 
-	for (int i = 0; i < sizeof(tempTable->_Buf) / sizeof(Class); i++)
+	for (int i = 0; i < BUF_Size; i++)
 	{
 		tempTable->_Buf[i] = NULL;
 	}
+	return tempTable;
 }
 
 void enqueue(TimeTable* pThis, Class input)
@@ -31,6 +32,7 @@ void enqueue(TimeTable* pThis, Class input)
 
 	pThis->_Buf[pThis->_tail] = tempClass;
 	pThis->_tail++;
+	pThis->size++;
 }
 
 
@@ -44,6 +46,7 @@ void cutHead(TimeTable* pThis)
 {
 	free(pThis->_Buf[pThis->_head]);
 	pThis->_Buf[pThis->_head] == NULL;
+	pThis->size--;
 	pThis->_head++;
 }
 
@@ -77,21 +80,25 @@ bool swapTimeTable(TimeTable* pThis, int index1, int index2)
 
 	int target1 = index1;
 	int target2 = index2;
-	
+
 	swapNumberBySize(&target1, &target2);
 
-	Class* tmp;
-	Class* c1;
-	Class* c2;
+	if (target1 < 0 || target2 > pThis->size - 1)
+	{
+		return false;
+	}
 
-	c1 = getNodeByIndex(index1);
-	c2 = getNodeByIndex(index2);
+	target1 = target1 + pThis->_head;
+	target2 = target2 + pThis->_head;
 
-	c1 = tmp;
-	c1 = c2;
-	c2 = tmp;
+	Class* tmp = pThis->_Buf[target1];
 
-	swapStartTime(c1, c2);
+	pThis->_Buf[target1] = pThis->_Buf[target2];
+	pThis->_Buf[target2] = tmp;
+
+	swapStartTime(pThis->_Buf[target1], pThis->_Buf[target2]);
+
+	return true;
 }
 
 bool changeTimeTable(TimeTable* pThis, Class input, int index)

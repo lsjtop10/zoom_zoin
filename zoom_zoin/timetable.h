@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h> 
 #include <string.h>
+#define BUF_Size 10
 
 typedef struct tm DateTime;
 typedef struct Class
@@ -19,7 +20,7 @@ typedef struct TimeTable
 	int _head;
 	int _tail;
 
-	Class* _Buf[10];
+	Class* _Buf[BUF_Size];
 }TimeTable;
 
 TimeTable* initializeTimeTable();
