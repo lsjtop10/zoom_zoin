@@ -7,9 +7,6 @@
 
 
 TimeTable* timeTable;
-Settings setting;
-
-void LoadTimeTableFromFile();
 void initlizeProgram(); //초반 작업
 
 void joinZoom(Class target)
