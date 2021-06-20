@@ -20,14 +20,14 @@ void initalizeProgram()
 	setting.UsedProgram = Load_Setting(0);
 	setting.wait_min = Load_Setting(1);
 	
-
-
-
 }
 
 void test()
 {
-	initlizeProgram();
-	showInitMenu(timeTable);
+	timeTable = initializeTimeTable();
+}
+
+int main()
+{
 
 }

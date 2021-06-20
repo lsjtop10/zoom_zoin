@@ -10,9 +10,6 @@ typedef struct Class
 	char* name;
 	char* zoomAdd;
 	DateTime startTime;
-
-	//Remark: Tail의 next노드는 항상 NULL
-	struct Class* _next;
 }Class;
 
 typedef struct TimeTable
@@ -20,7 +17,9 @@ typedef struct TimeTable
 	int size;
 
 	int _head;
-	int _tail
+	int _tail;
+
+	Class* _Buf[10];
 }TimeTable;
 
 TimeTable* initializeTimeTable();
