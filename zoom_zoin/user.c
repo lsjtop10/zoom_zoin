@@ -18,7 +18,7 @@ void shwoInitMenu(TimeTable* ptimeTable, Settings* setting)
 	scanf("%c", &input);
 	printf("1. 시간표 변경");
 	printf("2. 설정 변경");
-	printf("e: 나가기")
+	printf("e: 나가기");
 }
 
 static void inputChangeTimeTable()
