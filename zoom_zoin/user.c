@@ -22,7 +22,7 @@ static void clearLineFromReadBuffer(void)
 }
 
 
-static void showTimetable(TimeTable* ptimeTable)
+void showTimetable(TimeTable* ptimeTable)
 {
 	printf("<½Ã°£Ç¥>\n");
 	for (int i = 1; i <= ptimeTable->size; i++)

@@ -10,7 +10,8 @@ void LoadTimeTableFromFile();
 void initlizeProgram(); //초반 작업
 void joinZoom();
 
+
 int main()
 {
-	
+
 }
