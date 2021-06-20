@@ -1,8 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS
 #include <time.h>
 #include <stdlib.h>
 #include <stdbool.h> 
 #include <string.h>
+#define BUF_Size 10
 
 typedef struct tm DateTime;
 typedef struct Class
@@ -10,16 +11,16 @@ typedef struct Class
 	char* name;
 	char* zoomAdd;
 	DateTime startTime;
-
-	//Remark: Tail의 next노드는 항상 NULL
-	struct Class* _next;
 }Class;
 
 typedef struct TimeTable
 {
-	Class* _Head;
-	Class* _Tail;
 	int size;
+
+	int _head;
+	int _tail;
+
+	Class* _Buf[BUF_Size];
 }TimeTable;
 
 TimeTable* initializeTimeTable();
