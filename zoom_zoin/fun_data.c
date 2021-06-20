@@ -66,7 +66,6 @@ const char* Load_Subject(int type)
 
 	const char* retval = json_object_get_string(rootObject, json_object_get_name(rootObject, type));
 
-
 	//json_value_free(rootValue);
 	return retval;
 }

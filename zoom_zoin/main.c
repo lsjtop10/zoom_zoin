@@ -16,8 +16,8 @@ void initalizeProgram()
 	//todo: 여기다가 시간표 load해서 enqueue하는 부분 구현
 
 		//Setting Load
-	setting.UsedProgram = Load_Setting(0);
-	setting.wait_min = Load_Setting(1);
+	getSettings()->UsedProgram = Load_Setting(0);
+	getSettings()->wait_min = Load_Setting(1);
 
 	for (int i = 0; i < 7; i++)
 	{
@@ -112,5 +112,11 @@ void joinZoom(Class target)
 
 int main()
 {
+	initalizeProgram();
+	showInitMenu(timeTable);
 
+	while (true)
+	{
+		//여기에 loop 처리
+	}
 }
