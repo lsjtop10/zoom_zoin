@@ -17,9 +17,10 @@ typedef struct Class
 
 typedef struct TimeTable
 {
-	Class* _Head;
-	Class* _Tail;
 	int size;
+
+	int _head;
+	int _tail
 }TimeTable;
 
 TimeTable* initializeTimeTable();
