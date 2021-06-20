@@ -26,7 +26,5 @@ void joinZoom(Class target)
 
 int main()
 {
-	Class test = { "¹®ÇÐ", "https://us02web.zoom.us/j/6485437509?pwd=WE50VzZLUE4yUG1nMU4wRkh1SlBRUT09" };
-	getSettings()->UsedProgram = 1;
-	joinZoom(test);
+
 }
