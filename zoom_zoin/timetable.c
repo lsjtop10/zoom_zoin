@@ -22,10 +22,10 @@ void enqueue(TimeTable* pThis, Class input)
 	//Class를 할당받고 할당받은 Class 값 초기화
 	Class* tempClass = (Class*)malloc(sizeof(Class));
 
-	tempClass->name = (char*)malloc(sizeof(char) * strlen(input.name));
+	tempClass->name = (char*)malloc(sizeof(char) * strlen(input.name) + 1);
 	strcpy(tempClass->name, input.name);
 	
-	tempClass->zoomAdd = (char*)malloc(sizeof(char) * strlen(input.zoomAdd));
+	tempClass->zoomAdd = (char*)malloc(sizeof(char) * strlen(input.zoomAdd) + 1);
 	strcpy(tempClass->zoomAdd, input.zoomAdd);
 
 	tempClass->startTime = input.startTime;
@@ -114,10 +114,10 @@ bool changeTimeTable(TimeTable* pThis, Class input, int index)
 	free(Target->name);
 	free(Target->zoomAdd);
 
-	Target->name = malloc(sizeof(char) * strlen(input.name));
+	Target->name = malloc(sizeof(char) * strlen(input.name) + 1);
 	strcpy(Target->name, input.name);
 
-	Target->zoomAdd = malloc(sizeof(char) * strlen(input.zoomAdd));
+	Target->zoomAdd = malloc(sizeof(char) * strlen(input.zoomAdd) + 1);
 	strcpy(Target->zoomAdd, input.zoomAdd);
 
 	Target->startTime = input.startTime;

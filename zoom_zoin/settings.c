@@ -1,9 +1,9 @@
 #include "settings.h"
 
 Settings settings;
-char* Programs[3] = {"msedge","chrome","whale"};
+char* Programs[Num_Of_Prog] = {"msedge","chrome","whale"};
 
-char* getProgramsByIndex(int index)
+char* getProgramByIndex(int index)
 {
 	return Programs[index];
 }
