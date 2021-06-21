@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <process.h>
+#include <windows.h>
 #include "settings.h"
 #include "fun_data.h"
 #include "timetable.h"
@@ -174,7 +175,8 @@ int main()
 			joinZoom(head);
 			cutHead(timeTable);
 		}
-		//줌 접속
-		//머리 자르기
+		
+		Sleep(2000);
+		
 	}
 }
