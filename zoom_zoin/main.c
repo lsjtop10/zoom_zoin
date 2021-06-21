@@ -5,8 +5,7 @@
 #include "fun_data.h"
 #include "timetable.h"
 #include "user.h"
-
- 
+#include <time.h>
 
 TimeTable* timeTable;
 
@@ -16,83 +15,41 @@ void initalizeProgram()
 
 	//todo: 여기다가 시간표 load해서 enqueue하는 부분 구현
 
-		//Setting Load
-	getSettings()->UsedProgram = loadSetting(0);
-	getSettings()->WaitMin = loadSetting(1);
+	//Setting Load
+	getSettings()->UsedProgram = Load_Setting(0);
+	getSettings()->wait_min = Load_Setting(1);
+
+	time_t t = time(NULL);
+	struct tm times = *localtime(&t);
+
 
 	for (int i = 0; i < 7; i++)
 	{
-		const char* key = NULL;
-		key = loadSubjectObbject(i);
+		/*const char* key = NULL;
+		key = Load_Subject_Obbject(i);
+		*/
+		const char* str = NULL;
+		const char* timeTabled = strtok_s(Load_Timetable(i), ":", &str);
 
-		DateTime DTime;
-		DTime.tm_hour = 8;
-		DTime.tm_min = 0;
+		const char* week = NULL;
+		week = Load_timetable_week(times.tm_wday, i);
+		//printf("%d. %s\n", i, week);
+
+		DateTime tm;
+		tm.tm_hour = atoi(timeTabled);
+		tm.tm_min = atoi(str);
 
 		const char* zoomAd = NULL;
-		zoomAd = loadSubject(i);
-
+		zoomAd = Load_Subject(week);
+		
 		Class class;
-		class.name = key;
+		class.name = week;
 		class.zoomAdd = zoomAd;
-		class.startTime = DTime;
+		class.startTime = tm;
 
+		//printf("%d, %s, %s, %s/%s(%d:%d)\n", i, week, zoomAd, timeTabled, str, tm.tm_hour, tm.tm_min);
 		enqueue(timeTable, class);
 	}
-
-
-	/*
-	1. 파싱 -> class 구조체를 채운다
-	2. 채운 구조체를 enqueue함수를 호출해서 timetable큐에 집어넣는다.
-	 : 1. "문학", "httpls?dfdf", 9:00
-		a b c d f
-	   Class a;
-	   a.name
-	   a.zoomaddr
-	   c.starttime
-	   enqueue (timetable, class)
-	void enqueue(TimeTable* pThis, Class input)
-	{
-		//Class를 할당받고 입력받은 input에 맞게 초기화
-		Class* tempClass = (Class*)malloc(sizeof(Class));
-		tempClass->name = input.name;
-		tempClass->zoomAdd = input.zoomAdd;
-		tempClass->startTime = input.startTime;
-		if (pThis->size == 0)
-		{
-			pThis->_Head = tempClass;
-			pThis->size++;
-			pThis->_Tail = tempClass;
-		}
-		else
-		{
-			pThis->_Tail->_next = tempClass;
-			pThis->_Tail = pThis->_Tail->_next;
-			pThis->size++;
-		}
-		pThis->_Tail->_next = NULL;
-	}
-	Load_subject("과학")
-		-> 링크
-	char* name;
-	char* zoomAdd;
-	DateTime startTime;
-	subject
-	{
-		"과학": "www.zoom.com",
-		"수학": "www.zoom.com"
-	}
-	timetable
-	{
-		"Class_1": 5,
-		"Class_2": 23,
-		"Class_3": 10,
-		"Class_4": 20,
-		"Class_5": 50,
-		"Class_6": 50,
-		"Class_7": 35
-	}
-	*/
 
 }
 
