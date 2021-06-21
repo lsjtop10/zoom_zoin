@@ -51,9 +51,11 @@ void showInitMenu(TimeTable* ptimeTable)
 		{
 		case '1':
 			onChangeTimeTableRequest(ptimeTable);
+			system("cls");
 			break;
 		case '2':
 			onChanegeSettingRequest();
+			system("cls");
 			break;
 		case 'e':
 			return;
@@ -63,6 +65,7 @@ void showInitMenu(TimeTable* ptimeTable)
 			break;
 		default:
 			printf("올바른 값이 아닙니다. 다시 입력해주세요.\n");
+			system("cls");
 			break;
 		}
 	}
