@@ -6,6 +6,7 @@
 #define BUF_Size 10
 
 typedef struct tm DateTime;
+
 typedef struct Class
 {
 	char* name;
