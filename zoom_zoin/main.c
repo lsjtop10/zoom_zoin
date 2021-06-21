@@ -16,27 +16,26 @@ void initalizeProgram()
 	//todo: 여기다가 시간표 load해서 enqueue하는 부분 구현
 
 		//Setting Load
-	getSettings()->UsedProgram = Load_Setting(0);
-	getSettings()->wait_min = Load_Setting(1);
+	getSettings()->UsedProgram = loadSetting(0);
+	getSettings()->WaitMin = loadSetting(1);
 
 	for (int i = 0; i < 7; i++)
 	{
 		const char* key = NULL;
-		key = Load_Subject_Obbject(i);
+		key = loadSubjectObbject(i);
 
 		DateTime DTime;
 		DTime.tm_hour = 8;
 		DTime.tm_min = 0;
 
 		const char* zoomAd = NULL;
-		zoomAd = Load_Subject(i);
+		zoomAd = loadSubject(i);
 
 		Class class;
 		class.name = key;
 		class.zoomAdd = zoomAd;
 		class.startTime = DTime;
 
-		printf("%d, %s, %s\n", i, key, zoomAd);
 		enqueue(timeTable, class);
 	}
 
@@ -170,7 +169,7 @@ int main()
 
 		current = localtime(&timer); 
 		//만약 현재 시간이 줌 시작시간 분단위 - 사전 대기시간이면
-		if (compareTime(subtractTime(head->startTime, convertMintoDT(getSettings()->wait_min)), *current) == 1)
+		if (compareTime(subtractTime(head->startTime, convertMintoDT(getSettings()->WaitMin)), *current) == 1)
 		{
 			joinZoom(head);
 			cutHead(timeTable);

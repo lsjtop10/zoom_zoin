@@ -28,7 +28,7 @@ void showSettings()
 {
 	printf("<현재 설정>\n");
 	printf("현재 쓰는 프로그램: "); printf(getProgramByIndex(getSettings()->UsedProgram)); printf("\n");
-	printf("사전 대기시간: "); printf("%d", getSettings()->wait_min); printf("  분\n");
+	printf("사전 대기시간: "); printf("%d", getSettings()->WaitMin); printf("  분\n");
 }
 
 void showInitMenu(TimeTable* ptimeTable)
@@ -142,7 +142,7 @@ static void onChanegeSettingRequest()
 {
 
 	printf("미리 접속해서 기다릴 시간을 입력해주세요.\n");
-	scanf("%d", &getSettings()->wait_min);
+	scanf("%d", &getSettings()->WaitMin);
 	clearLineFromReadBuffer();
 
 	printf("<프로그램 목록>\n");

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "parson.h"
 
-int Load_Setting(int type);
-int Load_Timetable(int ToDay);
-const char* Load_Subject(int type);
-const char* Load_Subject_Obbject(int i);
+int loadSetting(int type);
+int loadTimetable(int ToDay);
+const char* loadSubject(int type);
+const char* loadSubjectObbject(int i);

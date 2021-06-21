@@ -4,7 +4,7 @@
 typedef struct Settings
 {
 	int UsedProgram;
-	int wait_min;
+	int WaitMin;
 } Settings;
 
 char* getProgramByIndex(int index); 

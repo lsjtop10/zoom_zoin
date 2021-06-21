@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "parson.h"
 
-int Load_Setting(int type)
+int loadSetting(int type)
 {
 	JSON_Value* rootValue;
 	JSON_Object* rootObject;
@@ -21,7 +21,7 @@ int Load_Setting(int type)
 	return retval;
 }
 
-int Load_Timetable(int ToDay)
+int loadTimetable(int ToDay)
 {
 
 	JSON_Value* rootValue;
@@ -54,7 +54,7 @@ int Load_Timetable(int ToDay)
 	return retval;
 }
 
-const char* Load_Subject(int type)
+const char* loadSubject(int type)
 {
 
 	JSON_Value* rootValue;
@@ -70,7 +70,7 @@ const char* Load_Subject(int type)
 	return retval;
 }
 
-const char* Load_Subject_Obbject(int i)
+const char* loadSubjectObbject(int i)
 {
 	JSON_Value* rootValue;
 	JSON_Object* rootObject;
