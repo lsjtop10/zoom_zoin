@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <process.h>
 #include <windows.h>
+#include <stdlib.h>
 #include "settings.h"
 #include "fun_data.h"
 #include "timetable.h"
@@ -17,7 +18,7 @@ void initalizeProgram()
 
 	//Setting Load
 	getSettings()->UsedProgram = Load_Setting(0);
-	getSettings()->wait_min = Load_Setting(1);
+	getSettings()->WaitMin = Load_Setting(1);
 
 	time_t t = time(NULL);
 	struct tm times = *localtime(&t);
@@ -25,15 +26,11 @@ void initalizeProgram()
 
 	for (int i = 0; i < 7; i++)
 	{
-		/*const char* key = NULL;
-		key = Load_Subject_Obbject(i);
-		*/
 		const char* str = NULL;
 		const char* timeTabled = strtok_s(Load_Timetable(i), ":", &str);
 
 		const char* week = NULL;
 		week = Load_timetable_week(times.tm_wday, i);
-		//printf("%d. %s\n", i, week);
 
 		DateTime tm;
 		tm.tm_hour = atoi(timeTabled);
@@ -47,7 +44,6 @@ void initalizeProgram()
 		class.zoomAdd = zoomAd;
 		class.startTime = tm;
 
-		//printf("%d, %s, %s, %s/%s(%d:%d)\n", i, week, zoomAd, timeTabled, str, tm.tm_hour, tm.tm_min);
 		enqueue(timeTable, class);
 	}
 
@@ -98,7 +94,6 @@ int compareTime(DateTime input0, DateTime input1)
 	}
 }
 
-//
 DateTime subtractTime(DateTime input1, DateTime input2)
 {
 	int min1 = convertDTtoMin(input1);
@@ -114,12 +109,20 @@ int main()
 	initalizeProgram();
 	showInitMenu(timeTable);
 
+	int period = 1;
+
 	while (true)
 	{
 		//여기에 loop 처리
 
 		//head불러오기
 		Class* head = lookHead(timeTable);
+		
+		if (head == NULL)
+		{
+			return 0;
+		}
+
 		//현재 시간 불러오기
 		time_t timer;
 		DateTime *current;
@@ -129,8 +132,11 @@ int main()
 		//만약 현재 시간이 줌 시작시간 분단위 - 사전 대기시간이면
 		if (compareTime(subtractTime(head->startTime, convertMintoDT(getSettings()->WaitMin)), *current) == 1)
 		{
+			//system("tskkill /im zoom.exe");
+			printf("%d교시 %s수업이 시작됐습니다 \n", period, head->name);
 			joinZoom(head);
 			cutHead(timeTable);
+			period++;
 		}
 		
 		Sleep(2000);

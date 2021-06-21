@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "parson.h"
 
-int loadSetting(int type)
+int Load_Setting(int type)
 {
 	JSON_Value* rootValue;
 	JSON_Object* rootObject;
