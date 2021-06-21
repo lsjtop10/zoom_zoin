@@ -1,10 +1,13 @@
 {
-  "Mathematics": "www.zoom.com..1",
-  "Literature": "www.zoom.com...2",
-  "Physics": "www.zoom.com111",
-  "Chemistry": "www.zoom.com...3",
-  "Biology": "www.zoom.com56662",
-  "Music": "www.zoom.com111",
-  "Physical_Education": "www.zoom.c34634611"
+  "Mathematics": "www.zoom.Mathematics",
+  "Literature": "www.zoom.Literature",
+  "Physics": "www.zoom.Physics",
+  "Chemistry": "www.zoom.Chemistry",
+  "Biology": "www.zoom.Biology",
+  "Music": "www.zoom.Music",
+  "Physical_Education": "www.zoom.Physical_Education",
+  "English": "www.zoom.English",
+  "Japanese": "www.zoom.Japanese",
+  "Technology": "www.zoom.Technology"
 
 }
