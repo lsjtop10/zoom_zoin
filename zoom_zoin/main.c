@@ -108,7 +108,7 @@ int main()
 {
 	initalizeProgram();
 	showInitMenu(timeTable);
-
+	printf("지금부터 작동 시작합니다.\n");
 	int period = 1;
 
 	while (true)
@@ -129,6 +129,7 @@ int main()
 		timer = time(NULL); // 현재 시각을 초 단위로 얻기
 
 		current = localtime(&timer); 
+
 		//만약 현재 시간이 줌 시작시간 분단위 - 사전 대기시간이면
 		if (compareTime(subtractTime(head->startTime, convertMintoDT(getSettings()->WaitMin)), *current) == 1)
 		{
