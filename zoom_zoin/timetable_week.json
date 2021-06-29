@@ -1,12 +1,5 @@
 {
-  "friday": [
-    "Mathematics",
-    "Physics",
-    "Biology",
-    "Music",
-    "Physical_Education",
-    "Music",
-    "Music"
+  "sunday": [
   ],
   "monday": [
     "Mathematics",
@@ -43,5 +36,16 @@
     "Physical_Education",
     "Music",
     "Music"
+  ],
+  "friday": [
+    "Mathematics",
+    "Physics",
+    "Biology",
+    "Music",
+    "Physical_Education",
+    "Music",
+    "Music"
+  ],
+  "saturday": [
   ]
 }
