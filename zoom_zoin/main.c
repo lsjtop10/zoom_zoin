@@ -118,7 +118,7 @@ int main()
 		//head불러오기
 		Class* head = lookHead(timeTable);
 		
-		if (head == NULL)
+		if (head == NULL || head->name == "null")
 		{
 			return 0;
 		}
