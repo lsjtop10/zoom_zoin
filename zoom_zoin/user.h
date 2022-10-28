@@ -1,3 +1,3 @@
 #pragma once
-void showInitMenu(TimeTable* ptimeTable);
-void showTimetable(TimeTable* ptimeTable);
+void show_Init_menu(Timetable* ptimeTable);
+void show_timetable(Timetable* ptimeTable);

@@ -7,5 +7,5 @@ typedef struct Settings
 	int WaitMin;
 } Settings;
 
-char* getProgramByIndex(int index); 
-Settings* getSettings();
+char* get_program_by_index(int index); 
+Settings* get_settings();

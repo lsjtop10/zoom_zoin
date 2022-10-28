@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "parson.h"
 
-int Load_Setting(int type)
+int load_setting(int type)
 {
 	JSON_Value* rootValue;
 	JSON_Object* rootObject;
@@ -21,7 +21,7 @@ int Load_Setting(int type)
 	return retval;
 }
 
-const char* Load_Timetable(int ToDay)
+const char* load_timetable(int today)
 {
 
 	JSON_Value* rootValue;
@@ -30,16 +30,14 @@ const char* Load_Timetable(int ToDay)
 	rootValue = json_parse_file("timetable.json");
 	rootObject = json_value_get_object(rootValue);
 
-
-
-	const char* retval = json_object_get_string(rootObject, json_object_get_name(rootObject, ToDay));
+	const char* retval = json_object_get_string(rootObject, json_object_get_name(rootObject, today));
 
 	//json_value_free(rootValue);
 
 	return retval;
 }
 
-const char* Load_Subject(const char * subject_name)
+const char* load_subject(const char * subjectName)
 {
 
 	JSON_Value* rootValue;
@@ -49,13 +47,13 @@ const char* Load_Subject(const char * subject_name)
 	rootObject = json_value_get_object(rootValue);
 
 
-	const char* retval = json_object_get_string(rootObject, subject_name);
+	const char* retval = json_object_get_string(rootObject, subjectName);
 
 	//json_value_free(rootValue);
 	return retval;
 }
 
-const char* loadSubjectObbject(int i)
+const char* load_Subject_Obbject(int i)
 {
 	JSON_Value* rootValue;
 	JSON_Object* rootObject;
@@ -70,7 +68,7 @@ const char* loadSubjectObbject(int i)
 	return retval;
 }
 
-const char* Load_timetable_week(int i, int num)
+const char* load_timetable_week(int i, int num)
 {
 	JSON_Value* rootValue;
 	JSON_Object* rootObject;

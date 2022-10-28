@@ -1,14 +1,14 @@
 #include "settings.h"
 #define _CRT_SECURE_NO_WARNINGS 
-Settings settings;
+Settings _Settings;
 char* Programs[Num_Of_Prog] = {"msedge","chrome","whale"};
 
-char* getProgramByIndex(int index)
+char* get_program_by_index(int index)
 {
 	return Programs[index];
 }
 
-Settings* getSettings()
+Settings* get_settings()
 {
-	return &settings;
+	return &_Settings;
 }

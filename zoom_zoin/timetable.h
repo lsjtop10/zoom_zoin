@@ -9,25 +9,25 @@ typedef struct tm DateTime;
 
 typedef struct Class
 {
-	char* name;
-	char* zoomAdd;
-	DateTime startTime;
+	char* Name;
+	char* ZoomAdd;
+	DateTime StartTime;
 }Class;
 
 typedef struct TimeTable
 {
-	int size;
+	int Size;
 
-	int _head;
-	int _tail;
+	int _Head;
+	int _Tail;
 
 	Class* _Buf[BUF_Size];
-}TimeTable;
+}Timetable;
 
-TimeTable* initializeTimeTable();
-void enqueue(TimeTable* pThis, Class input);
-Class* lookHead(TimeTable* pThis);
-void cutHead(TimeTable* pThis);
-Class* getNodeByIndex(TimeTable* pThis, int index);
-bool swapTimeTable(TimeTable* pThis, int index1, int index2);
-bool changeTimeTable(TimeTable* pThis, Class input, int index);
+Timetable* initialize_timetable();
+void enqueue(Timetable* pThis, Class input);
+Class* look_head(Timetable* pThis);
+void cut_head(Timetable* pThis);
+Class* get_node_by_index(Timetable* pThis, int index);
+bool swap_time_table(Timetable* pThis, int index1, int index2);
+bool change_time_table(Timetable* pThis, Class input, int index);

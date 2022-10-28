@@ -1,13 +1,13 @@
 #include "timetable.h"
 
 
-TimeTable* initializeTimeTable()
+Timetable* initialize_timetable()
 {
-	TimeTable* tempTable = (TimeTable*)malloc(sizeof(TimeTable));
+	Timetable* tempTable = (Timetable*)malloc(sizeof(Timetable));
 
-	tempTable->size = 0;
-	tempTable->_head = 0;
-	tempTable->_tail = 0;
+	tempTable->Size = 0;
+	tempTable->_Head = 0;
+	tempTable->_Tail = 0;
 
 	for (int i = 0; i < BUF_Size; i++)
 	{
@@ -16,48 +16,48 @@ TimeTable* initializeTimeTable()
 	return tempTable;
 }
 
-void enqueue(TimeTable* pThis, Class input)
+void enqueue(Timetable* pThis, Class input)
 {
 	//Class를 할당받고 할당받은 Class 값 초기화
 	Class* tempClass = (Class*)malloc(sizeof(Class));
 
-	tempClass->name = (char*)malloc(sizeof(char) * strlen(input.name) + 1);
-	strcpy(tempClass->name, input.name);
+	tempClass->Name = (char*)malloc(sizeof(char) * strlen(input.Name) + 1);
+	strcpy(tempClass->Name, input.Name);
 	
-	tempClass->zoomAdd = (char*)malloc(sizeof(char) * strlen(input.zoomAdd) + 1);
-	strcpy(tempClass->zoomAdd, input.zoomAdd);
+	tempClass->ZoomAdd = (char*)malloc(sizeof(char) * strlen(input.ZoomAdd) + 1);
+	strcpy(tempClass->ZoomAdd, input.ZoomAdd);
 
-	tempClass->startTime = input.startTime;
+	tempClass->StartTime = input.StartTime;
 
-	pThis->_Buf[pThis->_tail] = tempClass;
-	pThis->_tail++;
-	pThis->size++;
+	pThis->_Buf[pThis->_Tail] = tempClass;
+	pThis->_Tail++;
+	pThis->Size++;
 }
 
 
-Class* lookHead(TimeTable* pThis)
+Class* look_head(Timetable* pThis)
 {
-	return pThis->_Buf[pThis->_head];
+	return pThis->_Buf[pThis->_Head];
 }
 
 
-void cutHead(TimeTable* pThis)
+void cut_head(Timetable* pThis)
 {
-	free(pThis->_Buf[pThis->_head]->name);
-	free(pThis->_Buf[pThis->_head]->zoomAdd);
-	free(pThis->_Buf[pThis->_head]);
-	pThis->_Buf[pThis->_head] = NULL;
-	pThis->size--;
-	pThis->_head++;
+	free(pThis->_Buf[pThis->_Head]->Name);
+	free(pThis->_Buf[pThis->_Head]->ZoomAdd);
+	free(pThis->_Buf[pThis->_Head]);
+	pThis->_Buf[pThis->_Head] = NULL;
+	pThis->Size--;
+	pThis->_Head++;
 }
 
-Class* getNodeByIndex(TimeTable* pThis, int index)
+Class* get_node_by_index(Timetable* pThis, int index)
 {
-	return pThis->_Buf[pThis->_head + index];
+	return pThis->_Buf[pThis->_Head + index];
 }
 
 //input1이 input2보다 작으면 데이터를 스왑
-static void swapNumberBySize(int* input1, int* input2)
+static void swap_number_by_size(int* input1, int* input2)
 {
 	int tmp;
 	tmp = *input1;
@@ -68,60 +68,60 @@ static void swapNumberBySize(int* input1, int* input2)
 	}
 }
 
-static void swapStartTime(Class* input1, Class* input2)
+static void swap_start_time(Class* input1, Class* input2)
 {
 	DateTime temp;
-	temp = input1->startTime;
-	input1->startTime = input2->startTime;
-	input2->startTime = temp;
+	temp = input1->StartTime;
+	input1->StartTime = input2->StartTime;
+	input2->StartTime = temp;
 }
 
-bool swapTimeTable(TimeTable* pThis, int index1, int index2)
+bool swap_time_table(Timetable* pThis, int index1, int index2)
 {
 
 	int target1 = index1;
 	int target2 = index2;
 
-	swapNumberBySize(&target1, &target2);
+	swap_number_by_size(&target1, &target2);
 
-	if (target1 < 0 || target2 > pThis->size - 1)
+	if (target1 < 0 || target2 > pThis->Size - 1)
 	{
 		return false;
 	}
 
-	target1 = target1 + pThis->_head;
-	target2 = target2 + pThis->_head;
+	target1 = target1 + pThis->_Head;
+	target2 = target2 + pThis->_Head;
 
 	Class* tmp = pThis->_Buf[target1];
 
 	pThis->_Buf[target1] = pThis->_Buf[target2];
 	pThis->_Buf[target2] = tmp;
 
-	swapStartTime(pThis->_Buf[target1], pThis->_Buf[target2]);
+	swap_start_time(pThis->_Buf[target1], pThis->_Buf[target2]);
 
 	return true;
 }
 
-bool changeTimeTable(TimeTable* pThis, Class input, int index)
+bool change_time_table(Timetable* pThis, Class input, int index)
 {
-	if (index > pThis->size - 1)
+	if (index > pThis->Size - 1)
 	{
 		return false;
 	}
 
-	Class* Target = getNodeByIndex(pThis, index);
+	Class* Target = get_node_by_index(pThis, index);
 
-	//copy data in input to target IF CLASS STRUCT ARE CHANGED, EDIT THIS
-	free(Target->name);
-	free(Target->zoomAdd);
+	//copy data in input to target. IF CLASS STRUCT ARE CHANGED, EDIT THIS
+	free(Target->Name);
+	free(Target->ZoomAdd);
 
-	Target->name = malloc(sizeof(char) * strlen(input.name) + 1);
-	strcpy(Target->name, input.name);
+	Target->Name = malloc(sizeof(char) * strlen(input.Name) + 1);
+	strcpy(Target->Name, input.Name);
 
-	Target->zoomAdd = malloc(sizeof(char) * strlen(input.zoomAdd) + 1);
-	strcpy(Target->zoomAdd, input.zoomAdd);
+	Target->ZoomAdd = malloc(sizeof(char) * strlen(input.ZoomAdd) + 1);
+	strcpy(Target->ZoomAdd, input.ZoomAdd);
 
-	Target->startTime = input.startTime;
+	Target->StartTime = input.StartTime;
 
 	return true;
 }

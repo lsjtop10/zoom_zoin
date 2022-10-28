@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include "parson.h"
 
-int Load_Setting(int type);
-const char* Load_Timetable(int ToDay);
-const char* Load_Subject(const char* subject_name);
+int load_setting(int type);
+const char* load_timetable(int ToDay);
+const char* load_subject(const char* subject_name);
 const char* Load_Subject_Obbject(int i);
-const char* Load_timetable_week(int i, int num);
+const char* load_timetable_week(int i, int num);
